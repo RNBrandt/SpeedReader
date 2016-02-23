@@ -14,7 +14,7 @@ gem 'activerecord', "~>4.1"
 
 gem 'rake'
 gem 'bcrypt'
-
+gem 'nokogiri'
 gem 'shotgun'
 
 group :development, :test do
