@@ -1,3 +1,1 @@
-# SpeedReader
-
-A Ruby based speed reading app designed to replicate spritz and several other similar web apps. 
+This project is designed to be a Ruby and Jquery based speed reading app.  It was originally conceived as a passion project in phase 2 of DBC.  Please feel free to look at and comment on any of the code.
