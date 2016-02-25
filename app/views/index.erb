@@ -10,7 +10,7 @@
             <p><span class="glyphicon glyphicon-record" aria-hidden="true"></span>
               Enter the website you want to speedreed below</p>
             <form method="post" action="/users/<%= @user.id %>/websites">
-              <input type="text" placeholder="URL"></input>
+              <input name="url" type="text" placeholder="URL"></input>
               <input type="submit"></input>
             </form>
             <div class="col-sm-4">
@@ -39,11 +39,11 @@
           <!-- erb :login, :layout false -->
         <% end  %>
         <p>
-<div class="well">
+      <div class="well">
         <p>
         <% if @website %>
         <% @website=Website.first %>
-        <%= website.title%>
+        <%= @website.text%>
         <% end %>
         </p>
       </div>

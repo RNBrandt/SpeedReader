@@ -8,11 +8,12 @@ get "/users/:id/websites/new" do
 end
 
 post "/users/:id/websites" do
+  p params
   @user = User.find(session[:user_id])
   nokogiri_ify(params[:url])
   fetch_title(@document)
   fetch_body(@document)
-  @website = Website.new(title: @title,  body: @body, url: (params[:url]), user_id: (session[:user_id]))
+  @website = Website.new(title: @title,  text: @body, url: (params[:url]), user_id: (session[:user_id]))
   if @website.save
     erb :"/index"
   else
