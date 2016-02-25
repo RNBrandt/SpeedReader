@@ -6,7 +6,7 @@ class CreateWebsites < ActiveRecord::Migration
       t.text :text, null: false
       t.integer :user_id
 
-      t.timestamps, null: false
+
     end
   end
 end

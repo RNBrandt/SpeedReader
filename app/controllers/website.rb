@@ -3,15 +3,21 @@
 # end this will be on the users page.
 
 get "/users/:id/websites/new" do
-
+  @user = User.find(session[:user_id])
+  erb :"/websites/new"
 end
 
 post "/users/:id/websites" do
-  @user = User.find(session[:id])
+  @user = User.find(session[:user_id])
   nokogiri_ify(params[:url])
   fetch_title(@document)
   fetch_body(@document)
-  Website.new(title: @title,  body: @body, url: (params[:url]))
+  @website = Website.new(title: @title,  body: @body, url: (params[:url]), user_id: (session[:user_id]))
+  if @website.save
+    erb :"/index"
+  else
+    erb :"not_authorized"
+  end
 end
 
 
