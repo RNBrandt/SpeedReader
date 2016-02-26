@@ -4,23 +4,31 @@ $(document).ready(function () {
 
 var bindeListeners = function(){
   $("#url").on("submit", getWebsite),
-  $("#500Wpm").on("click", fiveHundred)
+  $("#300Wpm").on("click", threeHundred),
+  $("#400Wpm").on("click", fourHundred),
+  $("#450Wpm").on("click", fourHundredFifty),
+  $("#500Wpm").on("click", fiveHundred),
+  $("#550Wpm").on("click", fiveHundredFifty),
+  $("#600Wpm").on("click", sixHundred),
+  $("#Stop").on("click", stop)
 }
 
 var getWebsite = function(e){
   e.preventDefault();
-
+  console.log(e);
   $.ajax({
     method: "post",
     url: "/websites",
     data: $(this).serialize(),
     dataType: 'json'
   }).done(function(response){
+    console.log(e)
     // console.log(response)
     var title = response["title"]
     text = response["text_array"]
     var panel = $(".panel-body")
-    // console.log(text)
+    console.log(text)
+
     $(".panel-title").html("Ready to Read "+title+"?")
     // $.each(response, function(index, value){
     // setTimeout(function(){
@@ -30,30 +38,45 @@ var getWebsite = function(e){
   })
 }
 
-var fiveHundred = function(e){
-  console.log(text)
+var threeHundred = function(e){
   var i = 0
   setInterval(function(){
-    $(".panel-body").html(text[i++])},160);
+    $(".panel-body").html(text[i++])},200);
+}
+
+var fourHundred = function(e){
+  var i = 0
+  setInterval(function(){
+    $(".panel-body").html(text[i++])},150);
+}
+
+var fourHundredFifty = function(e){
+  var i = 0
+  setInterval(function(){
+    $(".panel-body").html(text[i++])},133);
 }
 
 var fiveHundred = function(e){
-  console.log(text)
   var i = 0
   setInterval(function(){
-    $(".panel-body").html(text[i++])},160);
+    $(".panel-body").html(text[i++])},120);
 }
 
-var fiveHundred = function(e){
-  console.log(text)
+var fiveHundredFifty = function(e){
   var i = 0
   setInterval(function(){
-    $(".panel-body").html(text[i++])},160);
+    $(".panel-body").html(text[i++])},109);
 }
 
-var fiveHundred = function(e){
-  console.log(text)
+var sixHundred = function(e){
   var i = 0
   setInterval(function(){
-    $(".panel-body").html(text[i++])},160);
+    $(".panel-body").html(text[i++])},100);
 }
+
+var stop = function(e){
+  quit = false
+}
+
+
+
