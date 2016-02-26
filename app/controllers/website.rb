@@ -2,10 +2,10 @@
 
 # end this will be on the users page.
 
-get "/users/:id/websites/new" do
-  @user = User.find(session[:user_id])
-  erb :"/websites/new"
-end
+# get "/users/:id/websites/new" do
+#   @user = User.find(session[:user_id])
+#   erb :"/websites/new"
+# end
 
 post "/websites" do
   p params
@@ -29,19 +29,19 @@ post "/websites" do
 end
 
 
-get "/users/:id/websites/:id" do
+# get "/users/:id/websites/:id" do
 
-end
+# end
 
 
-get "/users/:id/websites/:id/edit" do
+# get "/users/:id/websites/:id/edit" do
 
-end
+# end
 
-put "/users/:id/websites/:id" do
+# put "/users/:id/websites/:id" do
 
-end
+# end
 
-delete "/users/:id/websites/:id" do
+# delete "/users/:id/websites/:id" do
 
-end
+# end
