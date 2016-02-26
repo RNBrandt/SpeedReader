@@ -19,7 +19,7 @@
               <h3 class="panel-title">Panel title</h3>
             </div><!-- panel-heading -->
             <div class="panel-body">
-              Panel content
+
             </div><!-- panel-body -->
           </div><!-- panel panel-success -->
             <button type="button" class="btn btn-lg btn-default" method="get" action="/users/<%= @user.id %>/websites">New Website</button>
@@ -43,7 +43,7 @@
         <p>
         <% if @website %>
         <% @website=Website.first %>
-        <%= @website.text%>
+        <%= @text_array %>
         <% end %>
         </p>
       </div>

@@ -15,6 +15,9 @@ nav {
   height: 40px;
   font-weight: bold;
 }
+.well{
+  display: none;
+}
 
 nav .brand, nav .brand a {
   margin-left: 25px;
