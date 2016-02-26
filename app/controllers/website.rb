@@ -15,10 +15,15 @@ post "/users/:id/websites" do
   fetch_body(@document)
   @website = Website.new(title: @title,  text: @body, url: (params[:url]), user_id: (session[:user_id]))
   if @website.save
-    @text_array = array_ify(@website.text)
-    erb :"/index"
+    if request.xhr?
+      @text_array = array_ify(@website.text)
+      @text_array.to_json
+      # erb :"/index"
+    else
+    "Then you don't get to use it"
+    end
   else
-    erb :"not_authorized"
+    erb :"is not working"
   end
 end
 
