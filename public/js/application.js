@@ -3,7 +3,8 @@ $(document).ready(function () {
 });
 
 var bindeListeners = function(){
-  $("#url").on("submit", getWebsite)
+  $("#url").on("submit", getWebsite),
+  $("#500Wpm").on("click", fiveHundred)
 }
 
 var getWebsite = function(e){
@@ -17,8 +18,9 @@ var getWebsite = function(e){
   }).done(function(response){
     // console.log(response)
     var title = response["title"]
-    var text = response["text_array"]
+    text = response["text_array"]
     var panel = $(".panel-body")
+    // console.log(text)
     $(".panel-title").html("Ready to Read "+title+"?")
     // $.each(response, function(index, value){
     // setTimeout(function(){
@@ -26,4 +28,32 @@ var getWebsite = function(e){
     //   }, 5000)
     // })This bit will come at a later push, right now I have the text, and I'll put up a title
   })
+}
+
+var fiveHundred = function(e){
+  console.log(text)
+  var i = 0
+  setInterval(function(){
+    $(".panel-body").html(text[i++])},160);
+}
+
+var fiveHundred = function(e){
+  console.log(text)
+  var i = 0
+  setInterval(function(){
+    $(".panel-body").html(text[i++])},160);
+}
+
+var fiveHundred = function(e){
+  console.log(text)
+  var i = 0
+  setInterval(function(){
+    $(".panel-body").html(text[i++])},160);
+}
+
+var fiveHundred = function(e){
+  console.log(text)
+  var i = 0
+  setInterval(function(){
+    $(".panel-body").html(text[i++])},160);
 }
