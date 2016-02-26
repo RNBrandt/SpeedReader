@@ -15,6 +15,7 @@ post "/users/:id/websites" do
   fetch_body(@document)
   @website = Website.new(title: @title,  text: @body, url: (params[:url]), user_id: (session[:user_id]))
   if @website.save
+    @text_array = array_ify(@website.text)
     erb :"/index"
   else
     erb :"not_authorized"
