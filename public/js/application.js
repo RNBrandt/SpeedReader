@@ -11,16 +11,19 @@ var getWebsite = function(e){
 
   $.ajax({
     method: "post",
-    url: "/users/1/websites",
+    url: "/websites",
     data: $(this).serialize(),
     dataType: 'json'
-    // this will need to change tomorrow
   }).done(function(response){
+    // console.log(response)
+    var title = response["title"]
+    var text = response["text_array"]
     var panel = $(".panel-body")
-    $.each(response, function(index, value){
-    setTimeout(function(){
-      panel.show(value)
-      }, 5000)
-    })
+    $(".panel-title").html("Ready to Read "+title+"?")
+    // $.each(response, function(index, value){
+    // setTimeout(function(){
+    //   panel.show(value)
+    //   }, 5000)
+    // })This bit will come at a later push, right now I have the text, and I'll put up a title
   })
 }
