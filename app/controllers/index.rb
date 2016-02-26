@@ -1,10 +1,10 @@
 get '/' do
-  if (session[:user_id])
-    @user = User.find(session[:user_id])
+  # if (session[:user_id])
+  #   @user = User.find(session[:user_id])
+  #   erb :index
+  # else
     erb :index
-  else
-    erb :index
-  end
+  # end
 end
 
 # get '/secret' do
