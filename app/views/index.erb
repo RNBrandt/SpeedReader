@@ -3,41 +3,31 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
 
-        <h1>SpeedReeder</h1>
+        <h1>Speed REED</h1>
         <hr>
-        <% if (session[:user_id]) %>
           <div class="jumbotron">
             <p><span class="glyphicon glyphicon-record" aria-hidden="true"></span>
-              Enter the website you want to speedreed below</p>
-            <form method="post" action="/users/<%= @user.id %>/websites">
+              Enter the website you want to Speed Reed below</p>
+            <form method="post" id="url" action="/websites">
               <input name="url" type="text" placeholder="URL"></input>
               <input type="submit"></input>
             </form>
             <div class="col-sm-4">
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
+              <h3 class="panel-title">Website Title</h3>
             </div><!-- panel-heading -->
             <div class="panel-body">
 
             </div><!-- panel-body -->
           </div><!-- panel panel-success -->
-            <button type="button" class="btn btn-lg btn-default" method="get" action="/users/<%= @user.id %>/websites">New Website</button>
-            <button type="button" class="btn btn-lg btn-primary">Primary</button>
-            <button type="button" class="btn btn-lg btn-success">Success</button>
-            <button type="button" class="btn btn-lg btn-info">Info</button>
-            <button type="button" class="btn btn-lg btn-warning">Warning</button>
-            <button type="button" class="btn btn-lg btn-danger">Danger</button>
+            <button type="button" class="btn btn-lg btn-default" method="get">300 WPM</button>
+            <button type="button" class="btn btn-lg btn-primary">400 WPM</button>
+            <button type="button" class="btn btn-lg btn-success">450 WPM</button>
+            <button type="button" class="btn btn-lg btn-info">500 WPM</button>
+            <button type="button" class="btn btn-lg btn-warning">550 WPM</button>
+            <button type="button" class="btn btn-lg btn-danger">600 WPM</button>
           </div> <!-- jumbotron -->
-
-        <% else %>
-          <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
-          Please login or register to use this site
-          </p>
-          <a href="/sessions/new"><button type="button" class="btn btn-lg btn-primary"  >Login</button></a>
-          <a href="/users/new"><button type="button" class="btn btn-lg btn-success">Register</button></a>
-          <!-- erb :login, :layout false -->
-        <% end  %>
         <p>
       <div class="well">
         <p>

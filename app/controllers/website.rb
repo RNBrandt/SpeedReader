@@ -2,40 +2,46 @@
 
 # end this will be on the users page.
 
-get "/users/:id/websites/new" do
-  @user = User.find(session[:user_id])
-  erb :"/websites/new"
-end
+# get "/users/:id/websites/new" do
+#   @user = User.find(session[:user_id])
+#   erb :"/websites/new"
+# end
 
-post "/users/:id/websites" do
+post "/websites" do
   p params
-  @user = User.find(session[:user_id])
+  # @user = User.find(session[:user_id])
   nokogiri_ify(params[:url])
   fetch_title(@document)
   fetch_body(@document)
-  @website = Website.new(title: @title,  text: @body, url: (params[:url]), user_id: (session[:user_id]))
-  if @website.save
-    @text_array = array_ify(@website.text)
-    erb :"/index"
+  # @website = Website.new(title: @title,  text: @body, url: (params[:url]), user_id: (session[:user_id]))
+  # if @website.save
+  if request.xhr?
+      @text_array = array_ify(@body)
+      p @text_array
+      {text_array: @text_array, title: @title}.to_json
+      # erb :"/index"
   else
-    erb :"not_authorized"
+    "Then you don't get to use it"
   end
+  # else
+  #   erb :"is not working"
+  # end
 end
 
 
-get "/users/:id/websites/:id" do
+# get "/users/:id/websites/:id" do
 
-end
+# end
 
 
-get "/users/:id/websites/:id/edit" do
+# get "/users/:id/websites/:id/edit" do
 
-end
+# end
 
-put "/users/:id/websites/:id" do
+# put "/users/:id/websites/:id" do
 
-end
+# end
 
-delete "/users/:id/websites/:id" do
+# delete "/users/:id/websites/:id" do
 
-end
+# end
