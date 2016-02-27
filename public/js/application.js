@@ -15,7 +15,7 @@ var bindeListeners = function(){
 
 var getWebsite = function(e){
   e.preventDefault();
-  console.log(e);
+  console.log()
   $.ajax({
     method: "post",
     url: "/websites",
@@ -39,44 +39,35 @@ var getWebsite = function(e){
 }
 
 var threeHundred = function(e){
-  var i = 0
-  setInterval(function(){
-    $(".panel-body").html(text[i++])},200);
+  intervalLoop(200);
 }
 
 var fourHundred = function(e){
-  var i = 0
-  setInterval(function(){
-    $(".panel-body").html(text[i++])},150);
+  intervalLoop(150);
 }
 
 var fourHundredFifty = function(e){
-  var i = 0
-  setInterval(function(){
-    $(".panel-body").html(text[i++])},133);
+  intervalLoop(133);
 }
 
 var fiveHundred = function(e){
-  var i = 0
-  setInterval(function(){
-    $(".panel-body").html(text[i++])},120);
+  intervalLoop(120);
 }
 
 var fiveHundredFifty = function(e){
-  var i = 0
-  setInterval(function(){
-    $(".panel-body").html(text[i++])},109);
+  intervalLoop(109);
 }
 
 var sixHundred = function(e){
+  intervalLoop(100);
+}
+
+// var stop = function(e){
+//   quit = false
+// }
+
+function intervalLoop(speed){
   var i = 0
   setInterval(function(){
-    $(".panel-body").html(text[i++])},100);
+    $(".panel-body").html(text[i++])},speed);
 }
-
-var stop = function(e){
-  quit = false
-}
-
-
-

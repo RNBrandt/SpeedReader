@@ -11,6 +11,8 @@ end
 def fetch_body(document)
   @body = document.css('p').inner_text
 end
+
 def array_ify(string)
   @text_array = string.split(" ")
 end
+
