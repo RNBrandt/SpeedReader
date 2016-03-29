@@ -14,3 +14,6 @@ post "/websites" do
   end
 end
 
+get "/websites" do
+
+end

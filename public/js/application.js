@@ -16,6 +16,8 @@ var getWebsite = function(e){
     dataType: 'json',
   }).done(function(response){
     var title = response["title"]
+    text = response["text_array"]
+    var panel = $(".panel-body")
     $(".panel-title").html("Ready to Read "+title+"?");
   })
 }
@@ -33,14 +35,5 @@ function intervalLoop(speed){
 function runArticle(){
   var speed = $('input[name=amountRange]').val()
   var WPM = 60000 / speed;
-  $.ajax({
-    method: "post",
-    url: "/websites",
-    data: $(this).serialize(),
-    dataType: 'json',
-  }).done(function(response){
-    var text = response["text_array"]
-    console.log(text)
-  })
-
+  intervalLoop(WPM);
 }
