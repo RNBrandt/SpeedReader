@@ -22,14 +22,15 @@ var getWebsite = function(e){
   })
 }
 
-// var threeHundred = function(e){
-//   intervalLoop(200);
-// }
-
 function intervalLoop(speed){
   var i = 0
-  setInterval(function(){
-    $(".panel-body").html(text[i++])},speed);
+  if (i <= text.length){
+    setInterval(function(){
+      $(".panel-body").html(text[i++])},speed);
+    console.log(text.length)
+    console.log(i)
+    }
+  else return
 }
 
 function runArticle(){
