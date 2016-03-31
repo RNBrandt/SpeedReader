@@ -5,6 +5,7 @@ $(document).ready(function () {
 var bindListeners = function(){
   $("#url").on("submit", getWebsite)
   $("#slider").on("click", runArticle)
+  $("#pause").on("click", pressPause)
 }
 
 var getWebsite = function(e){
@@ -23,12 +24,12 @@ var getWebsite = function(e){
 }
 
 function intervalLoop(speed){
-  var i = 0
-  if (i <= text.length){
+  var i = 0;
+  var pause = false;
+  console.log(pause);
+  if ((i <= text.length) && (pauseSwitch() != true)){
     setInterval(function(){
       $(".panel-body").html(text[i++])},speed);
-    console.log(text.length)
-    console.log(i)
     }
   else return
 }
@@ -37,4 +38,14 @@ function runArticle(){
   var speed = $('input[name=amountRange]').val()
   var WPM = 60000 / speed;
   intervalLoop(WPM);
+}
+
+function pauseSwitch(){
+  pressPause;
+}
+
+function pressPause(){
+  console.log("article should be paused");
+  return pause = true;
+  // console.log(pause)
 }
