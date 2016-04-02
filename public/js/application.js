@@ -15,23 +15,29 @@ var getWebsite = function(e){
     url: "/websites",
     data: $(this).serialize(),
     dataType: 'json',
-  }).done(function(response){
-    var title = response["title"]
-    text = response["text_array"]
-    var panel = $(".panel-body")
-    $(".panel-title").html("Ready to Read "+title+"?");
+  }).done(function SpeedReed(response){
+  this.title = response["title"];
+  this.text = response["text_array"];
+  this.i = 0;
+  this.pause = false;
   })
 }
 
-function intervalLoop(speed){
+SpeedReed.prototype.addTitle = function(website){
+ $(".panel-title").html("Ready to Read "+this.title+"?");
+  })
+
+
+ intervalLoop(speed){
   var i = 0;
-  var pause = false;
   console.log(pause);
-  if ((i <= text.length) && (pauseSwitch() != true)){
-    setInterval(function(){
-      $(".panel-body").html(text[i++])},speed);
-    }
-  else return
+  pause = false;
+  console.log(pause)
+  setInterval(function(){
+    if ((i <= text.length) && (pause != true)){
+      $(".panel-body").html(text[i++])
+    } else setTimeout(function(){console.log("yo")},1)
+  }, speed);
 }
 
 function runArticle(){
@@ -41,11 +47,13 @@ function runArticle(){
 }
 
 function pauseSwitch(){
-  pressPause;
+  pressPause();
+  // pressPlay()
 }
 
 function pressPause(){
   console.log("article should be paused");
-  return pause = true;
-  // console.log(pause)
+  pause = !pause;
+  console.log(pause)
 }
+
