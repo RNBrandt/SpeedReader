@@ -9,33 +9,32 @@ var bindListeners = function(){
 }
 
 var getWebsite = function(e){
+  var CreateSpeedReedObject = function(response){
+    this.title = response["title"];
+    this.text = response["text_array"];
+    this.i = 0;
+    this.pause = false;
+    }
   e.preventDefault();
   $.ajax({
     method: "post",
     url: "/websites",
     data: $(this).serialize(),
     dataType: 'json',
-  }).done(function SpeedReed(response){
-  this.title = response["title"];
-  this.text = response["text_array"];
-  this.i = 0;
-  this.pause = false;
-  })
+  }).done(function(response){
+    speedReedObject = new CreateSpeedReedObject(response);
+    addTitle(speedReedObject);
+    })
 }
 
-SpeedReed.prototype.addTitle = function(website){
- $(".panel-title").html("Ready to Read "+this.title+"?");
-  })
+var addTitle = function(speedReedObject){
+ $(".panel-title").html("Ready to Read "+speedReedObject.title+"?");
+  }
 
-
- intervalLoop(speed){
-  var i = 0;
-  console.log(pause);
-  pause = false;
-  console.log(pause)
+ function intervalLoop(speedReedObject, speed){
   setInterval(function(){
-    if ((i <= text.length) && (pause != true)){
-      $(".panel-body").html(text[i++])
+    if ((speedReedObject.i <= speedReedObject.text.length) && (speedReedObject.pause != true)){
+      $(".panel-body").html(speedReedObject.text[speedReedObject.i++])
     } else setTimeout(function(){console.log("yo")},1)
   }, speed);
 }
@@ -43,17 +42,10 @@ SpeedReed.prototype.addTitle = function(website){
 function runArticle(){
   var speed = $('input[name=amountRange]').val()
   var WPM = 60000 / speed;
-  intervalLoop(WPM);
-}
-
-function pauseSwitch(){
-  pressPause();
-  // pressPlay()
+  intervalLoop(speedReedObject, WPM);
 }
 
 function pressPause(){
-  console.log("article should be paused");
-  pause = !pause;
-  console.log(pause)
+  speedReedObject.pause = !speedReedObject.pause;
 }
 
