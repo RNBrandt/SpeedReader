@@ -15,6 +15,29 @@ nav {
   height: 40px;
   font-weight: bold;*/
 /*}*/
+.container {
+  position: relative;
+  height: 100vh;
+}
+.jumbotron{
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  transform: translate(-20%, 0%);
+}
+
+.reading {
+  width: 90%;
+}
+
+.main-page {
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
+}
+
 .show {
   display: block !important;
 }
