@@ -3,18 +3,18 @@ $(document).ready(function () {
 });
 
 var bindListeners = function(){
-  $("#url").on("submit", getWebsite)
-  $("#slider").on("click", runArticle)
-  $("#pause").on("click", pressPause)
-  $("#stop").on("click", pressStop)
-}
+  $("#url").on("submit", getWebsite);
+  $("#slider").on("click", runArticle);
+  $("#pause").on("click", pressPause);
+  $("#stop").on("click", pressStop);
+};
 
 var CreateSpeedReedObject = function(response){
   this.title = response["title"];
   this.text = response["text_array"];
   this.i = 0;
   this.pause = false;
-}
+};
 
 var getWebsite = function(e){
   e.preventDefault();
@@ -27,35 +27,23 @@ var getWebsite = function(e){
     speedReedObject = new CreateSpeedReedObject(response);
     addTitle(speedReedObject);
     $("#reading").removeClass("hidden");
-    $("#website-input").addClass("hidden")
-  })
-}
+    $("#website-input").addClass("hidden");
+  });
+};
 
-<<<<<<< HEAD
 var addTitle = function(speedReedObject){
  $("#title").html("Ready to Read "+speedReedObject.title+"?");
-}
+};
 
-function intervalLoop(speedReedObject, speed){
+var = function intervalLoop(speedReedObject, speed){
   setInterval(function(){
     if ((speedReedObject.i <= speedReedObject.text.length) && (speedReedObject.pause != true)){
       $("#text-object").html(speedReedObject.text[speedReedObject.i++])
     } else setTimeout(function(){},1)
-=======
-function intervalLoop(speed){
-  var i = 0;
-  console.log(pause);
-  pause = false;
-  console.log(pause)
-  setInterval(function(){
-    if ((i <= text.length) && (pause != true)){
-      $(".panel-body").html(text[i++])
-    } else setTimeout(function(){console.log("yo")},1)
->>>>>>> 24edbfd... add pause button
   }, speed);
-}
+};
 
-function runArticle(){
+var runArticle = function(){
   var speed = $('input[name=amountRange]').val()
   var WPM = 60000 / speed;
   $("#slider").addClass("hidden");
@@ -63,31 +51,30 @@ function runArticle(){
   $("#stop").removeClass("hidden")
   intervalLoop(speedReedObject, WPM);
   switchButton()
-}
+};
 
-<<<<<<< HEAD
-function pressPause(){
+var pressPause = function(){
   speedReedObject.pause = !speedReedObject.pause;
   switchButton()
-}
+};
 
-function switchButton(){
+var switchButton = function(){
   if (speedReedObject.pause == false){
     $("#pause").html("Pause")
   }
   else{
     $("#pause").html("Resume")
-  }
-}
+  };
+};
 
-function clearObject(){
+var clearObject = function(){
   speedReedObject.text = [];
   speedReedObject.title = [];
   speedReedObject.i = 0;
   speedReedObject.pause = false
-}
+};
 
-function pressStop(){
+var pressStop = function(){
   $("#slider").removeClass("hidden");
   $("#stop").addClass("hidden")
   $("#pause").addClass("hidden")
@@ -96,10 +83,9 @@ function pressStop(){
   $("#website-input").removeClass("hidden")
   switchButton();
   clearObject();
-}
+};
 
 
-=======
 function pauseSwitch(){
   pressPause();
   // pressPlay()
@@ -114,4 +100,3 @@ function pressPause(){
 // function pressPlay(){
 //   return pause = false
 // }
->>>>>>> 24edbfd... add pause button
