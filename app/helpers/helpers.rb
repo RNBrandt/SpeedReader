@@ -3,7 +3,6 @@ def nokogiri_ify(url)
   @document = Nokogiri.parse(Net::HTTP.get(uri))
 end
 
-
 def fetch_title(document)
   @title = document.css('h1').first.inner_text
 end
