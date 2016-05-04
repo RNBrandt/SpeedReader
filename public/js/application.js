@@ -33,13 +33,13 @@ var getWebsite = function(e){
 
 <<<<<<< HEAD
 var addTitle = function(speedReedObject){
- $(".panel-title").html("Ready to Read "+speedReedObject.title+"?");
+ $("#title").html("Ready to Read "+speedReedObject.title+"?");
 }
 
 function intervalLoop(speedReedObject, speed){
   setInterval(function(){
     if ((speedReedObject.i <= speedReedObject.text.length) && (speedReedObject.pause != true)){
-      $(".panel-body").html(speedReedObject.text[speedReedObject.i++])
+      $("#text-object").html(speedReedObject.text[speedReedObject.i++])
     } else setTimeout(function(){},1)
 =======
 function intervalLoop(speed){

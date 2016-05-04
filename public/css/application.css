@@ -15,6 +15,9 @@ nav {
   height: 40px;
   font-weight: bold;*/
 /*}*/
+.panel-body {
+  width: 15em;
+}
 .container {
   position: relative;
   height: 100vh;
@@ -22,13 +25,23 @@ nav {
 .jumbotron{
   position: absolute;
   top: 30%;
-  left: 30%;
-  transform: translate(-20%, 0%);
+  left: 20%;
+  right: 20%;
+  transform: translate(0%, -20%);
+}
+#website-input{
+  width:90%;
 }
 
-.reading {
+#reading {
   width: 90%;
 }
+<<<<<<< HEAD
+=======
+#text-container{
+  /*width: 80%;*/
+}
+>>>>>>> add869c... Center Jumbotron and text
 .main-page {
   background-image: url("../img/background.jpg");
   background-repeat: no-repeat;
