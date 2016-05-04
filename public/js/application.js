@@ -31,6 +31,7 @@ var getWebsite = function(e){
   })
 }
 
+<<<<<<< HEAD
 var addTitle = function(speedReedObject){
  $(".panel-title").html("Ready to Read "+speedReedObject.title+"?");
 }
@@ -40,6 +41,17 @@ function intervalLoop(speedReedObject, speed){
     if ((speedReedObject.i <= speedReedObject.text.length) && (speedReedObject.pause != true)){
       $(".panel-body").html(speedReedObject.text[speedReedObject.i++])
     } else setTimeout(function(){},1)
+=======
+function intervalLoop(speed){
+  var i = 0;
+  console.log(pause);
+  pause = false;
+  console.log(pause)
+  setInterval(function(){
+    if ((i <= text.length) && (pause != true)){
+      $(".panel-body").html(text[i++])
+    } else setTimeout(function(){console.log("yo")},1)
+>>>>>>> 24edbfd... add pause button
   }, speed);
 }
 
@@ -53,6 +65,7 @@ function runArticle(){
   switchButton()
 }
 
+<<<<<<< HEAD
 function pressPause(){
   speedReedObject.pause = !speedReedObject.pause;
   switchButton()
@@ -86,3 +99,19 @@ function pressStop(){
 }
 
 
+=======
+function pauseSwitch(){
+  pressPause();
+  // pressPlay()
+}
+
+function pressPause(){
+  console.log("article should be paused");
+  pause = !pause;
+  console.log(pause)
+}
+
+// function pressPlay(){
+//   return pause = false
+// }
+>>>>>>> 24edbfd... add pause button

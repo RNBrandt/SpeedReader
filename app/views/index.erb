@@ -39,7 +39,20 @@
       </form>
     </div>
   </div>
-  <!-- jumbotron -->
 </div>
-<!-- container -->
+  <form id="WPM">
+    <input type="range" name="amountRange" min="100" max="600" value="100" oninput="this.form.amountInput.value=this.value" />
+    <input type="number" name="amountInput" min="100" max="600" value="100" oninput="this.form.amountRange.value=this.value" /> Words Per Minute
+    <div class="btn-group">
+      <button type="button" class="btn btn-success btn-lg"  id="slider">
+        Start Reading!
+      </button>
+    </div>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-warning btn-lg"  id="pause">
+        Pause
+      </button>
+    </div>
+  </form>
 
