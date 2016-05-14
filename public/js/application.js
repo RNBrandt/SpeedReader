@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 var bindListeners = function(){
   $("#url").on("submit", getWebsite)
-  $("#slider").on("click", runArticle)
+  $("#start-button").on("click", runArticle)
   $("#pause").on("click", pressPause)
   $("#stop").on("click", pressStop)
 }
@@ -32,7 +32,7 @@ var getWebsite = function(e){
 }
 
 var addTitle = function(speedReedObject){
- $("#title").html("Ready to Read "+speedReedObject.title+"?");
+ $("#title").html('Ready to Read "'+speedReedObject.title+'"?');
 }
 
 function intervalLoop(speedReedObject, speed){
@@ -47,6 +47,7 @@ function runArticle(){
   var speed = $('input[name=amountRange]').val()
   var WPM = 60000 / speed;
   $("#slider").addClass("hidden");
+  $("#start-button").addClass("hidden")
   $("#pause").removeClass("hidden");
   $("#stop").removeClass("hidden")
   intervalLoop(speedReedObject, WPM);
@@ -75,7 +76,7 @@ function clearObject(){
 }
 
 function pressStop(){
-  $("#slider").removeClass("hidden");
+  $(".amountRange").removeClass("hidden");
   $("#stop").addClass("hidden")
   $("#pause").addClass("hidden")
   $("#reading").addClass("hidden");
