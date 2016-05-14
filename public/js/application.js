@@ -2,21 +2,21 @@ $(document).ready(function () {
   bindListeners();
 });
 
-var bindListeners = function(){
+function bindListeners(){
   $("#url").on("submit", getWebsite)
   $("#start-button").on("click", runArticle)
   $("#pause").on("click", pressPause)
   $("#stop").on("click", pressStop)
 }
 
-var CreateSpeedReedObject = function(response){
+function CreateSpeedReedObject(response){
   this.title = response["title"];
   this.text = response["text_array"];
   this.i = 0;
   this.pause = false;
 }
 
-var getWebsite = function(e){
+function getWebsite(e){
   e.preventDefault();
   $.ajax({
     method: "post",
@@ -31,7 +31,7 @@ var getWebsite = function(e){
   })
 }
 
-var addTitle = function(speedReedObject){
+function addTitle(speedReedObject){
  $("#title").html('Ready to Read "'+speedReedObject.title+'"?');
 }
 
@@ -72,11 +72,14 @@ function clearObject(){
   speedReedObject.text = [];
   speedReedObject.title = [];
   speedReedObject.i = 0;
-  speedReedObject.pause = false
+  speedReedObject.pause = false;
+  $("#text-object").html("");
 }
 
 function pressStop(){
   $(".amountRange").removeClass("hidden");
+  $("#slider").removeClass("hidden");
+  $("#start-button").removeClass("hidden")
   $("#stop").addClass("hidden")
   $("#pause").addClass("hidden")
   $("#reading").addClass("hidden");
@@ -85,4 +88,3 @@ function pressStop(){
   switchButton();
   clearObject();
 }
-
