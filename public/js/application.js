@@ -33,6 +33,8 @@ var getWebsite = function(e){
 
 var addTitle = function(speedReedObject){
  $("#title").html('Ready to Read "'+speedReedObject.title+'"?');
+ $("#slider").removeClass("hidden");
+ $("#start-button").removeClass("hidden");
 }
 
 function intervalLoop(speedReedObject, speed){
@@ -76,6 +78,9 @@ function clearObject(){
 }
 
 function pressStop(){
+  $("#text-object").html("")
+  $("#slider").val(100);
+  $("#wpmBox").val(100);
   $(".amountRange").removeClass("hidden");
   $("#stop").addClass("hidden")
   $("#pause").addClass("hidden")
