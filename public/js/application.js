@@ -77,6 +77,8 @@ function clearObject(){
 
 function pressStop(){
   $(".amountRange").removeClass("hidden");
+  $("#slider").removeClass("hidden");
+  $("#start-button").removeClass("hidden")
   $("#stop").addClass("hidden")
   $("#pause").addClass("hidden")
   $("#reading").addClass("hidden");
@@ -85,4 +87,3 @@ function pressStop(){
   switchButton();
   clearObject();
 }
-
