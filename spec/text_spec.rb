@@ -26,12 +26,15 @@ describe 'Post#websites' do
 end
 
 feature 'header' do
-  scenario 'header is present' do
+  scenario 'has all elements' do
     visit('/')
-    expect{
-      find(".header-basic").to include("Speed")
-
-    }
+    expect(page).to have_css(".header-basic")
+    expect(find(".header-basic")).to have_content("Speed")
+    expect(find(".header-basic")).to have_content("Email")
+    expect(find(".header-basic")).to have_content("GitHub")
+    expect(find(".header-basic")).to have_content("Website")
   end
+
+
 end
 
