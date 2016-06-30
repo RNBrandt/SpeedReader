@@ -21,4 +21,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec'
   gem 'capybara'
+  gem 'steak'
+  gem 'rack-test'
+  gem 'selenium-webdriver'
 end
