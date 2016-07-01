@@ -25,90 +25,90 @@ describe 'Post#websites' do
   end
 end
 
-# feature 'header' do
-#   scenario 'has all elements' do
-#     visit('/')
-#     expect(page).to have_css(".header-basic")
-#     expect(find(".header-basic")).to have_content("Speed")
-#     expect(find(".header-basic")).to have_content("Email")
-#     expect(find(".header-basic")).to have_content("GitHub")
-#     expect(find(".header-basic")).to have_content("Website")
-#     expect(find(".header-basic")).to have_content("LinkedIn")
-#   end
+feature 'header' do
+  scenario 'has all elements' do
+    visit('/')
+    expect(page).to have_css(".header-basic")
+    expect(find(".header-basic")).to have_content("Speed")
+    expect(find(".header-basic")).to have_content("Email")
+    expect(find(".header-basic")).to have_content("GitHub")
+    expect(find(".header-basic")).to have_content("Website")
+    expect(find(".header-basic")).to have_content("LinkedIn")
+  end
 
-#   scenario 'has functional github link' do
-#     visit('/')
-#     within(".header-basic") do
-#       click_link("GitHub")
-#       expect(page).to have_current_path("https://github.com/RNBrandt", options = {:url=>true})
-#       # expect(find(".vcard-username")).to have_content("RNBrandt")
-#     end
-#   end
-#   scenario 'has functional website link' do
-#     visit ('/')
-#     within(".header-basic") do
-#       click_link("Website")
-#       expect(page).to have_current_path("http://rnbrandt.github.io", options = {:url=>true})
-#       # expect(find(".vcard-username")).to have_content("RNBrandt")
-#     end
-#   end
-#   scenario 'has functional LinkedIn link' do
-#     visit ('/')
-#     within(".header-basic") do
-#       click_link("LinkedIn")
-#       expect(page).to have_current_path("https://www.linkedin.com/in/reubenbrandt", options = {:url=>true})
-#       # expect(find(".vcard-username")).to have_content("RNBrandt")
-#     end
-#   end
-#   # scenario 'has functional email link' do
-#   #   visit ('/')
-#   #   within(".header-basic") do
-#   #     expect(find("#email")).to have_css("href")
-#   #   end
-#   # end
-# end
+  scenario 'has functional github link' do
+    visit('/')
+    within(".header-basic") do
+      click_link("GitHub")
+      expect(page).to have_current_path("https://github.com/RNBrandt", options = {:url=>true})
+      # expect(find(".vcard-username")).to have_content("RNBrandt")
+    end
+  end
+  scenario 'has functional website link' do
+    visit ('/')
+    within(".header-basic") do
+      click_link("Website")
+      expect(page).to have_current_path("http://rnbrandt.github.io", options = {:url=>true})
+      # expect(find(".vcard-username")).to have_content("RNBrandt")
+    end
+  end
+  scenario 'has functional LinkedIn link' do
+    visit ('/')
+    within(".header-basic") do
+      click_link("LinkedIn")
+      expect(page).to have_current_path("https://www.linkedin.com/in/reubenbrandt", options = {:url=>true})
+      # expect(find(".vcard-username")).to have_content("RNBrandt")
+    end
+  end
+  # scenario 'has functional email link' do
+  #   visit ('/')
+  #   within(".header-basic") do
+  #     expect(find("#email")).to have_css("href")
+  #   end
+  # end
+end
 
-# feature 'footer' do
-#   scenario 'has all elements' do
-#     visit('/')
-#     expect(page).to have_css(".footer-basic-centered")
-#     expect(find(".footer-basic-centered")).to have_content("Created By Reuben Brandt")
-#     expect(find(".footer-basic-centered")).to have_content("Email")
-#     expect(find(".footer-basic-centered")).to have_content("GitHub")
-#     expect(find(".footer-basic-centered")).to have_content("Website")
-#   end
+feature 'footer' do
+  scenario 'has all elements' do
+    visit('/')
+    expect(page).to have_css(".footer-basic-centered")
+    expect(find(".footer-basic-centered")).to have_content("Created By Reuben Brandt")
+    expect(find(".footer-basic-centered")).to have_content("Email")
+    expect(find(".footer-basic-centered")).to have_content("GitHub")
+    expect(find(".footer-basic-centered")).to have_content("Website")
+  end
 
-#   scenario 'has functional github link' do
-#     visit('/')
-#     within(".footer-basic-centered") do
-#       click_link("GitHub")
-#       expect(page).to have_current_path("https://github.com/RNBrandt", options = {:url=>true})
-#       # expect(find(".vcard-username")).to have_content("RNBrandt")
-#     end
-#   end
-#   scenario 'has functional website link' do
-#     visit ('/')
-#     within(".footer-basic-centered") do
-#       click_link("Website")
-#       expect(page).to have_current_path("http://rnbrandt.github.io", options = {:url=>true})
-#       # expect(find(".vcard-username")).to have_content("RNBrandt")
-#     end
-#   end
-#   scenario 'has functional LinkedIn link' do
-#     visit ('/')
-#     within(".footer-basic-centered") do
-#       click_link("LinkedIn")
-#       expect(page).to have_current_path("https://www.linkedin.com/in/reubenbrandt", options = {:url=>true})
-#       # expect(find(".vcard-username")).to have_content("RNBrandt")
-#     end
-#   end
-#   # scenario 'has functional email link' do
-#   #   visit ('/')
-#   #   within(".footer-basic-centered") do
-#   #     expect(find("#email")).to have_xpath("//a[contains(@href,Reuben.Brandt@gmail.com)")
-#   #   end
-#   # end
-# end
+  scenario 'has functional github link' do
+    visit('/')
+    within(".footer-basic-centered") do
+      click_link("GitHub")
+      expect(page).to have_current_path("https://github.com/RNBrandt", options = {:url=>true})
+      # expect(find(".vcard-username")).to have_content("RNBrandt")
+    end
+  end
+  scenario 'has functional website link' do
+    visit ('/')
+    within(".footer-basic-centered") do
+      click_link("Website")
+      expect(page).to have_current_path("http://rnbrandt.github.io", options = {:url=>true})
+      # expect(find(".vcard-username")).to have_content("RNBrandt")
+    end
+  end
+  scenario 'has functional LinkedIn link' do
+    visit ('/')
+    within(".footer-basic-centered") do
+      click_link("LinkedIn")
+      expect(page).to have_current_path("https://www.linkedin.com/in/reubenbrandt", options = {:url=>true})
+      # expect(find(".vcard-username")).to have_content("RNBrandt")
+    end
+  end
+  # scenario 'has functional email link' do
+  #   visit ('/')
+  #   within(".footer-basic-centered") do
+  #     expect(find("#email")).to have_xpath("//a[contains(@href,Reuben.Brandt@gmail.com)")
+  #   end
+  # end
+end
 
 feature 'body' do
   scenario 'has jumbotron with proper content' do
