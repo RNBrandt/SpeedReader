@@ -110,32 +110,55 @@ require 'selenium-webdriver'
 #   # end
 # end
 
-feature 'body' do
-  scenario 'has jumbotron with proper content' do
-    visit ('/')
-    expect(page).to have_css(".jumbotron")
-    expect(find(".jumbotron")).to have_content("Directions")
-    expect(page).to have_field('url', with: "http://www.bbc.com/news/magazine-35261648")
-    expect(find(".jumbotron")).to have_button("Submit")
-    expect(find(".jumbotron")).to_not have_button("#start-button")
-  end
+# feature 'body' do
+#   scenario 'has jumbotron with proper content' do
+#     visit ('/')
+#     expect(page).to have_css(".jumbotron")
+#     expect(find(".jumbotron")).to have_content("Directions")
+#     expect(page).to have_field('url', with: "http://www.bbc.com/news/magazine-35261648")
+#     expect(find(".jumbotron")).to have_button("Submit")
+#   end
 
-  scenario 'has proper jumbotron content hidden' do
+#   scenario 'has proper jumbotron content hidden' do
+#     visit ('/')
+#     expect(find(".jumbotron")).to_not have_button("#start-button")
+#     expect(find(".jumbotron")).to_not have_button("#stop")
+#     expect(find(".jumbotron")).to_not have_button("#pause")
+#     expect(find(".jumbotron")).to_not have_button("#WPM")
+#     expect(find(".jumbotron")).to_not have_button("#text-center")
+#   end
+# end
+
+feature 'submit button' do
+  scenario 'will load a page with the correct content' do
     visit ('/')
-    expect(find(".jumbotron")).to_not have_button("#start-button")
-    expect(find(".jumbotron")).to_not have_button("#stop")
-    expect(find(".jumbotron")).to_not have_button("#pause")
-    expect(find(".jumbotron")).to_not have_button("#WPM")
-    expect(find(".jumbotron")).to_not have_button("#text-center")
+    click_button('Submit')
+    sleep 3.seconds
+    expect(find(".jumbotron")).to_not have_content("Directions")
+    expect(page).to_not have_field('url', with: "http://www.bbc.com/news/magazine-35261648")
+    expect(find(".jumbotron")).to_not have_button("Submit")
+    expect(find(".jumbotron")).to have_css("#reading")
+    expect(find("#ready-to-read")).to have_content("Ready to Read")
+    expect(find(".jumbotron")).to have_css("#WPM")
+    expect(find('.jumbotron #WPM')).to have_css('.btn-group')
+    expect(find(".btn-group")).to have_button("Start Reading!")
+    expect(find(".btn-group")).not_to have_button("Pause")
+    expect(find(".btn-group")).not_to have_button("Stop")
   end
 end
 
-  # feature 'submit button' do
-  #   scenario 'will load a page with the correct content'
-  #   visit ('/')
-  #   click_button('Submit')
-  #   sleep 2.seconds
-  #   expect(page).to have("")
-  # end
+feature 'Start Reading' do
+  scenario 'Change WPM value and press Start will begin SpeedReeding' do
+    visit ('/')
+    click_button('Submit')
+    sleep 2.seconds
+    within(:css, "#WPM") do
+      fill_in 'wpmBox', with: 200
+    end
+    click_button('Start Reading!')
+    # sleep (0.5).seconds
+    click_button('Pause')
+  end
+end
 
 
