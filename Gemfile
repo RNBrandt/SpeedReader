@@ -16,6 +16,8 @@ gem 'rake'
 gem 'bcrypt'
 gem 'nokogiri'
 gem 'shotgun'
+gem 'reactive-ruby', '0.7.40'
+gem 'opal-jquery'
 
 group :development, :test do
   gem 'faker'

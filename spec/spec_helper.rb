@@ -22,9 +22,10 @@ require File.expand_path("../../config/environment", __FILE__)
 def app
   Sinatra::Application
 end
-
+Capybara.ignore_hidden_elements = true
 Capybara.configure do |c|
   c.run_server = false
   c.default_driver = :selenium
   c.app_host = "http://localhost:9393"
 end
+

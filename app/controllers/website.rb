@@ -5,7 +5,6 @@ post "/websites" do
   fetch_body(@document)
   if request.xhr?
     @text_array = array_ify(@body)
-    p @text_array
     {text_array: @text_array, title: @title}.to_json
     # erb :"/index"
   end
