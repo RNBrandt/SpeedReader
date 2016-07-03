@@ -41,18 +41,32 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    concurrent-ruby (1.0.2)
     daemons (1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    ethon (0.9.0)
+      ffi (>= 1.3.0)
     eventmachine (1.2.0.1)
     faker (1.6.3)
       i18n (~> 0.5)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
     ffi (1.9.10)
-    hike (1.2.3)
+    gh (0.14.0)
+      addressable
+      backports
+      faraday (~> 0.8)
+      multi_json (~> 1.0)
+      net-http-persistent (>= 2.7)
+      net-http-pipeline
+    highline (1.7.8)
     hirb (0.7.3)
     i18n (0.7.0)
     json (1.8.3)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mime-types (3.1)
@@ -61,24 +75,17 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
+    net-http-persistent (2.9.4)
+    net-http-pipeline (1.0.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    opal (0.8.0)
-      hike (~> 1.2)
-      sourcemap (~> 0.1.0)
-      sprockets (~> 3.1)
-      tilt (>= 1.4)
-    opal-activesupport (0.3.0)
-      opal (>= 0.5.0, < 1.0.0)
-    opal-browser (0.2.0)
-      opal
-      paggio
-    opal-jquery (0.4.1)
-      opal (>= 0.7.0, < 0.10.0)
-    paggio (0.2.6)
     pg (0.18.4)
     pkg-config (1.1.7)
+    pusher-client (0.6.2)
+      json
+      websocket (~> 1.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -98,10 +105,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.2.2)
-    reactive-ruby (0.7.40)
-      opal (= 0.8.0)
-      opal-activesupport (>= 0.2.0)
-      opal-browser (= 0.2.0)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -141,10 +144,6 @@ GEM
       rack-test
       sinatra (~> 1.4.0)
       tilt (>= 1.3, < 3)
-    sourcemap (0.1.1)
-    sprockets (3.6.0)
-      concurrent-ruby (~> 1.0)
-      rack (> 1, < 3)
     steak (2.0.0)
       capybara (>= 1.0.0)
       rspec-rails (>= 2.5.0)
@@ -155,6 +154,17 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    travis (1.8.2)
+      backports
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.9, >= 0.9.1)
+      gh (~> 0.13)
+      highline (~> 1.6)
+      launchy (~> 2.1)
+      pusher-client (~> 0.4)
+      typhoeus (~> 0.6, >= 0.6.8)
+    typhoeus (0.8.0)
+      ethon (>= 0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     websocket (1.2.3)
@@ -172,11 +182,9 @@ DEPENDENCIES
   faker
   hirb
   nokogiri
-  opal-jquery
   pg
   rack-test
   rake
-  reactive-ruby (= 0.7.40)
   rspec
   selenium-webdriver
   shotgun
@@ -184,6 +192,7 @@ DEPENDENCIES
   sinatra-contrib
   steak
   thin
+  travis
 
 BUNDLED WITH
    1.12.4
