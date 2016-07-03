@@ -40,7 +40,6 @@ feature 'header' do
     within(".header-basic") do
       click_link("GitHub")
       expect(page).to have_current_path("https://github.com/RNBrandt", options = {:url=>true})
-      # expect(find(".vcard-username")).to have_content("RNBrandt")
     end
   end
   scenario 'has functional website link' do
@@ -48,7 +47,6 @@ feature 'header' do
     within(".header-basic") do
       click_link("Website")
       expect(page).to have_current_path("http://rnbrandt.github.io", options = {:url=>true})
-      # expect(find(".vcard-username")).to have_content("RNBrandt")
     end
   end
   scenario 'has functional LinkedIn link' do
@@ -174,7 +172,6 @@ feature 'Pause Button' do
     click_button('Start Reading!')
     sleep (0.1).seconds
     click_button('Pause')
-    # sleep (20).seconds
     expect(find(".btn-group")).to have_button("Resume")
   end
 end
@@ -190,7 +187,6 @@ feature 'Resume Button' do
     click_button('Start Reading!')
     sleep (0.1).seconds
     click_button('Pause')
-    # sleep (20).seconds
     expect(find(".btn-group")).to have_button("Resume")
     click_button('Resume')
     expect(find(".btn-group")).to have_button("Pause")
