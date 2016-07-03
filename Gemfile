@@ -22,7 +22,7 @@ gem 'shotgun'
 # gem 'guard-rspec'
 # gem 'travis'
 # gem 'stripe'
-gem 'mime-types-data', '~> 3.2016', '>= 3.2016.0221'
+gem 'mime-types-data'
 
 group :development, :test do
   # gem 'faker'

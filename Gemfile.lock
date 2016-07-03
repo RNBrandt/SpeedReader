@@ -145,7 +145,7 @@ DEPENDENCIES
   bcrypt
   capybara
   hirb
-  mime-types-data (~> 3.2016, >= 3.2016.0221)
+  mime-types-data
   nokogiri
   pg
   rack-test
