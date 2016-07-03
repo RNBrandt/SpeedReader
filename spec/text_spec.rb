@@ -129,35 +129,52 @@ require 'selenium-webdriver'
 #   end
 # end
 
-feature 'submit button' do
-  scenario 'will load a page with the correct content' do
+# feature 'submit button' do
+#   scenario 'will load a page with the correct content' do
+#     visit ('/')
+#     click_button('Submit')
+#     sleep 3.seconds
+#     expect(find(".jumbotron")).to_not have_content("Directions")
+#     expect(page).to_not have_field('url', with: "http://www.bbc.com/news/magazine-35261648")
+#     expect(find(".jumbotron")).to_not have_button("Submit")
+#     expect(find(".jumbotron")).to have_css("#reading")
+#     expect(find("#ready-to-read")).to have_content("Ready to Read")
+#     expect(find(".jumbotron")).to have_css("#WPM")
+#     expect(find('.jumbotron #WPM')).to have_css('.btn-group')
+#     expect(find(".btn-group")).to have_button("Start Reading!")
+#     expect(find(".btn-group")).not_to have_button("Pause")
+#     expect(find(".btn-group")).not_to have_button("Stop")
+#   end
+# end
+
+# feature 'WPM box' do
+#   scenario 'will change slider value' do
+#     visit ('/')
+#     click_button('Submit')
+#     sleep 3.seconds
+#     within(:css, "#WPM") do
+#       fill_in 'wpmBox', with: 200
+#     end
+#     expect(find('#WPM')).to have_field('slider', with: 200)
+#   end
+# end
+
+feature 'Start-Reading Button' do
+  scenario 'will create the proper fields' do
     visit ('/')
     click_button('Submit')
     sleep 3.seconds
-    expect(find(".jumbotron")).to_not have_content("Directions")
-    expect(page).to_not have_field('url', with: "http://www.bbc.com/news/magazine-35261648")
-    expect(find(".jumbotron")).to_not have_button("Submit")
-    expect(find(".jumbotron")).to have_css("#reading")
-    expect(find("#ready-to-read")).to have_content("Ready to Read")
-    expect(find(".jumbotron")).to have_css("#WPM")
-    expect(find('.jumbotron #WPM')).to have_css('.btn-group')
-    expect(find(".btn-group")).to have_button("Start Reading!")
-    expect(find(".btn-group")).not_to have_button("Pause")
-    expect(find(".btn-group")).not_to have_button("Stop")
-  end
-end
-
-feature 'Start Reading' do
-  scenario 'Change WPM value and press Start will begin SpeedReeding' do
-    visit ('/')
-    click_button('Submit')
-    sleep 2.seconds
     within(:css, "#WPM") do
       fill_in 'wpmBox', with: 200
     end
     click_button('Start Reading!')
-    # sleep (0.5).seconds
+    sleep (0.1).seconds
     click_button('Pause')
+    # sleep (20).seconds
+    expect(find(".btn-group")).not_to have_button("Start Reading!")
+    expect(find(".btn-group")).to have_button("Stop")
+    expect(find('#WPM')).not_to have_field('slider')
+    expect(find('#WPM')).to have_field('wpmBox', with: 200)
   end
 end
 
