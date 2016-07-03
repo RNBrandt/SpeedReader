@@ -28,6 +28,7 @@ end
 feature 'header' do
   scenario 'has all elements' do
     visit('/')
+    sleep 7.seconds
     expect(page).to have_css(".header-basic")
     expect(find(".header-basic")).to have_content("Speed")
     expect(find(".header-basic")).to have_content("Email")
@@ -37,6 +38,7 @@ feature 'header' do
   end
   scenario 'has functional github link' do
     visit ('/')
+    sleep 7.seconds
     within(".header-basic") do
       click_link("GitHub")
       expect(page).to have_current_path("https://github.com/RNBrandt", options = {:url=>true})
@@ -45,6 +47,7 @@ feature 'header' do
   end
   scenario 'has functional website link' do
     visit ('/')
+    sleep 7.seconds
     within(".header-basic") do
       click_link("Website")
       expect(page).to have_current_path("http://rnbrandt.github.io", options = {:url=>true})
@@ -53,6 +56,7 @@ feature 'header' do
   end
   scenario 'has functional LinkedIn link' do
     visit ('/')
+    sleep 7.seconds
     within(".header-basic") do
       click_link("LinkedIn")
       expect(page).to have_current_path("https://www.linkedin.com/in/reubenbrandt", options = {:url=>true})
@@ -63,6 +67,7 @@ end
 feature 'footer' do
   scenario 'has all elements' do
     visit('/')
+    sleep 7.seconds
     expect(page).to have_css(".footer-basic-centered")
     expect(find(".footer-basic-centered")).to have_content("Created By Reuben Brandt")
     expect(find(".footer-basic-centered")).to have_content("Email")
@@ -71,6 +76,7 @@ feature 'footer' do
   end
   scenario 'has functional github link' do
     visit ('/')
+    sleep 7.seconds
     within(".footer-basic-centered") do
       click_link("GitHub")
       expect(page).to have_current_path("https://github.com/RNBrandt", options = {:url=>true})
@@ -78,6 +84,7 @@ feature 'footer' do
   end
   scenario 'has functional website link' do
     visit ('/')
+    sleep 7.seconds
     within(".footer-basic-centered") do
       click_link("Website")
       expect(page).to have_current_path("http://rnbrandt.github.io", options = {:url=>true})
@@ -85,6 +92,7 @@ feature 'footer' do
   end
   scenario 'has functional LinkedIn link' do
     visit ('/')
+    sleep 7.seconds
     within(".footer-basic-centered") do
       click_link("LinkedIn")
       expect(page).to have_current_path("https://www.linkedin.com/in/reubenbrandt", options = {:url=>true})
@@ -95,6 +103,7 @@ end
 feature 'body' do
   scenario 'has jumbotron with proper content' do
     visit ('/')
+    sleep 7.seconds
     expect(page).to have_css(".jumbotron")
     expect(find(".jumbotron")).to have_content("Directions")
     expect(page).to have_field('url', with: "http://www.bbc.com/news/magazine-35261648")
@@ -102,6 +111,7 @@ feature 'body' do
   end
   scenario 'has proper jumbotron content hidden' do
     visit ('/')
+    sleep 7.seconds
     expect(find(".jumbotron")).to_not have_button("#start-button")
     expect(find(".jumbotron")).to_not have_button("#stop")
     expect(find(".jumbotron")).to_not have_button("#pause")
