@@ -23,7 +23,7 @@ gem 'shotgun'
 gem 'travis'
 
 group :development, :test do
-  gem 'faker'
+  # gem 'faker'
   gem 'rake'
   gem 'rspec'
   gem 'capybara'
