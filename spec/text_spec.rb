@@ -197,6 +197,21 @@ feature 'Resume Button' do
   end
 end
 
+feature 'speed reading' do
+  scenario 'words will move at the speed created' do
+  visit ('/')
+    click_button('Submit')
+    sleep 5.seconds
+    click_button('Start Reading!')
+    sleep (0.1).seconds
+    click_button('Pause')
+    click_button('Resume')
+    sleep (15).seconds
+    click_button ('Pause')
+    expect(page).to have_content("Roosevelt")
+  end
+end
+
 feature 'Stop Button' do
   scenario 'will return user to the first page' do
     visit ('/')
